@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="2026奥斯陆建筑三年展热点推送网页：What if Nature Comes First?" />
+  <title>完整专题｜如果自然优先？｜2026奥斯陆建筑三年展</title>
+  <style>
+    :root{--ink:#10110e;--paper:#f3f3e9;--paper-2:#e7e7dc;--lime:#63ff4f;--line:rgba(16,17,14,.18);--soft:rgba(16,17,14,.64);--white:#fff}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif;line-height:1.65;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}img{display:block;width:100%;object-fit:cover}
+    .progress{position:fixed;top:0;left:0;height:4px;background:var(--lime);z-index:999;width:0}
+    .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:14px 28px;border-bottom:1px solid var(--line);background:rgba(243,243,233,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+    .brand{font-size:13px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}.nav{display:flex;gap:24px;font-size:13px;color:var(--soft)}.nav a:hover{color:var(--ink)}
+    .hero{min-height:88vh;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(320px,.82fr);border-bottom:1px solid var(--line)}
+    .hero-copy{padding:72px 6vw 48px;display:flex;flex-direction:column;justify-content:space-between}
+    .eyebrow{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .dot{width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px rgba(99,255,79,.16)}
+    h1{margin:34px 0 28px;font-size:clamp(58px,8.8vw,144px);line-height:.88;letter-spacing:-.065em;font-weight:900;max-width:980px}
+    h1 .accent{display:inline-block;background:var(--lime);padding:.03em .12em .08em;transform:rotate(-1deg)}
+    .hero-lead{max-width:760px;font-size:clamp(18px,2vw,28px);line-height:1.45;font-weight:500}
+    .hero-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px;padding-top:18px;border-top:1px solid var(--line)}
+    .meta-item span{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:4px}.meta-item strong{font-size:15px}
+    .hero-media{position:relative;min-height:620px;background:#1f2b1e;overflow:hidden}.hero-media img{height:100%;filter:saturate(.8) contrast(1.04)}
+    .hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(0,0,0,.46))}
+    .hero-caption{position:absolute;z-index:2;left:24px;right:24px;bottom:22px;color:#fff;font-size:12px;display:flex;justify-content:space-between;gap:20px}
+    .section{padding:92px 6vw;border-bottom:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:start;margin-bottom:52px}
+    .section-kicker{font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:var(--soft);position:sticky;top:88px}
+    .section-title{font-size:clamp(34px,5vw,74px);line-height:1.04;letter-spacing:-.04em;margin:0;max-width:980px}
+    .intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px}
+    .quote{background:var(--ink);color:var(--paper);padding:42px;border-radius:2px;font-size:clamp(25px,3vw,44px);line-height:1.2;letter-spacing:-.025em;min-height:340px;display:flex;flex-direction:column;justify-content:space-between}
+    .quote small{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#b8b8b0}.essay{font-size:18px;max-width:720px}.essay p:first-child{margin-top:0}.highlight{background:linear-gradient(transparent 60%,var(--lime) 60%)}
+    .four-scales{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+    .scale-card{min-height:300px;padding:28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;transition:.25s ease}
+    .scale-card:hover{background:var(--lime);transform:translateY(-5px)}.scale-num{font-size:12px;font-weight:800}.scale-card h3{font-size:30px;line-height:1;margin:0 0 12px;letter-spacing:-.03em}.scale-card p{font-size:14px;color:var(--soft);margin:0}.scale-card:hover p{color:rgba(16,17,14,.72)}
+    .gallery{display:grid;grid-template-columns:1.1fr .9fr;grid-template-rows:360px 330px;gap:16px}.gallery figure{margin:0;position:relative;overflow:hidden;background:#d9d9cf}.gallery figure:first-child{grid-row:1/3}.gallery img{height:100%;transition:transform .65s cubic-bezier(.2,.7,.2,1)}.gallery figure:hover img{transform:scale(1.035)}.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:48px 18px 16px;background:linear-gradient(transparent,rgba(0,0,0,.64));color:#fff;font-size:12px}
+    .process{display:grid;grid-template-columns:repeat(5,1fr);gap:0;align-items:stretch}.step{padding:26px 20px;min-height:190px;border:1px solid var(--line);border-right:none;position:relative;background:transparent}.step:last-child{border-right:1px solid var(--line)}.step:not(:last-child):after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);font-size:22px;background:var(--paper);padding:5px;z-index:2}.step strong{display:block;font-size:21px;margin-top:44px}.step span{font-size:12px;color:var(--soft)}
+    .portfolio-wrap{display:grid;grid-template-columns:.82fr 1.18fr;gap:34px}.portfolio-note{background:var(--lime);padding:34px;min-height:360px;display:flex;flex-direction:column;justify-content:space-between}.portfolio-note h3{font-size:clamp(31px,4vw,56px);line-height:1.03;letter-spacing:-.04em;margin:0}
+    .tags{display:flex;flex-wrap:wrap;gap:10px}.tag{border:1px solid var(--ink);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700}.prompts{display:grid;gap:12px}.prompt{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:22px 0;border-top:1px solid var(--line)}.prompt:last-child{border-bottom:1px solid var(--line)}.prompt-num{font-size:12px;font-weight:800;padding-top:5px}.prompt h4{font-size:22px;margin:0 0 7px}.prompt p{margin:0;color:var(--soft)}
+    .sources{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.source{padding:22px;border:1px solid var(--line);transition:.2s ease;background:rgba(255,255,255,.12)}.source:hover{background:var(--ink);color:var(--paper);transform:translateY(-3px)}.source b{display:block;margin-bottom:7px}.source span{font-size:12px;color:var(--soft)}.source:hover span{color:#b8b8b0}
+    footer{padding:56px 6vw 72px;display:flex;justify-content:space-between;gap:28px;align-items:end}.footer-big{font-size:clamp(34px,5vw,76px);font-weight:900;letter-spacing:-.05em;line-height:.95}.footer-note{font-size:12px;color:var(--soft);max-width:420px;text-align:right}
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+    @media(max-width:980px){.nav{display:none}.hero{grid-template-columns:1fr}.hero-media{min-height:64vh}.hero-copy{padding-top:50px}.hero-meta{grid-template-columns:1fr 1fr}.section-head{grid-template-columns:1fr;gap:16px}.section-kicker{position:static}.intro-grid,.portfolio-wrap{grid-template-columns:1fr}.four-scales{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr;grid-template-rows:420px 280px 280px}.gallery figure:first-child{grid-row:auto}.process{grid-template-columns:1fr}.step{border-right:1px solid var(--line);border-bottom:none}.step:last-child{border-bottom:1px solid var(--line)}.step:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-17px;transform:translateX(-50%)}.sources{grid-template-columns:1fr}footer{flex-direction:column;align-items:flex-start}.footer-note{text-align:left}}
+    @media(max-width:620px){.topbar{padding:12px 18px}.hero-copy,.section{padding-left:20px;padding-right:20px}.hero-copy{padding-bottom:30px}h1{font-size:58px}.hero-meta{grid-template-columns:1fr;gap:11px}.hero-media{min-height:500px}.four-scales{grid-template-columns:1fr}.section{padding-top:64px;padding-bottom:64px}.quote{padding:28px;min-height:300px}.gallery{grid-template-rows:360px 240px 240px}.portfolio-note{padding:26px}footer{padding:46px 20px 62px}}
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <header class="topbar">
+    <a class="brand" href="index.html">← 返回封面</a>
+    <nav class="nav"><a href="#idea">核心命题</a><a href="#scales">四个尺度</a><a href="#portfolio">作品集启发</a><a href="#sources">资料来源</a></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div><div class="eyebrow"><span class="dot"></span>建筑空间热点推送 · 2026</div><h1>如果<br><span class="accent">自然优先？</span></h1><div class="hero-lead">2026奥斯陆建筑三年展把自然从建筑完成后的“附加项”，重新放回设计决策的起点。</div></div>
+        <div class="hero-meta"><div class="meta-item"><span>展期</span><strong>17 SEP — 01 OCT 2026</strong></div><div class="meta-item"><span>地点</span><strong>Sofienberg Church · Oslo</strong></div><div class="meta-item"><span>主题</span><strong>What if Nature Comes First?</strong></div></div>
+      </div>
+      <div class="hero-media"><img src="https://oslotriennale.imgix.net/OAT_Abrakadabra_Kirke__0244.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=jpg&fp-x=0.5&fp-y=0.5&h=2200&w=1500" alt="Oslo Architecture Triennale 2026 at Sofienberg Church" onerror="this.style.display='none'" /><div class="hero-caption"><span>Sofienberg Church · Oslo</span><span>OAT 2026</span></div></div>
+    </section>
+
+    <section class="section" id="idea">
+      <div class="section-head reveal"><div class="section-kicker">01 / The question</div><h2 class="section-title">不是给建筑“加一点绿色”，而是先问：<span class="highlight">自然需要什么？</span></h2></div>
+      <div class="intro-grid">
+        <div class="quote reveal"><div>“什么应该被建造？<br>什么应该被保留？<br>又有什么其实可以不建？”</div><small>从自然出发，而不是把自然留到最后</small></div>
+        <div class="essay reveal"><p>2026奥斯陆建筑三年展于<strong>9月17日至10月1日</strong>在奥斯陆 Sofienberg Church 举行，汇集30多个国际项目。策展框架将“自然优先”落实到材料、既有建筑、土地关系与更大的制度系统中。</p><p>这里讨论的可持续，不再只是节能设备、绿色屋顶或材料标签，而是把设计顺序彻底反过来：<strong>先理解场地已有的生态与资源，再决定建筑是否出现、如何出现。</strong></p><p>对于建筑与空间设计来说，这意味着从“创造一个新物体”转向“编辑已经存在的世界”。</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="scales">
+      <div class="section-head reveal"><div class="section-kicker">02 / Four scales</div><h2 class="section-title">从一块材料，到整个城市系统。</h2></div>
+      <div class="four-scales reveal">
+        <article class="scale-card"><div class="scale-num">01</div><div><h3>Materials</h3><p>材料从哪里来？能否使用当地资源、废弃物与可再利用构件，减少运输与开采？</p></div></article>
+        <article class="scale-card"><div class="scale-num">02</div><div><h3>Structures</h3><p>已有建筑是否真的需要拆除？改造、增补与再使用能否成为默认选择？</p></div></article>
+        <article class="scale-card"><div class="scale-num">03</div><div><h3>Territories</h3><p>建筑如何回应土地、水文、植被与物种，而不是把场地视为空白画布？</p></div></article>
+        <article class="scale-card"><div class="scale-num">04</div><div><h3>Systems</h3><p>法规、金融、产业链与土地制度如何影响我们“为什么要建”以及“建多少”？</p></div></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head reveal"><div class="section-kicker">03 / Visual notes</div><h2 class="section-title">把“已有的一切”看作设计资源。</h2></div>
+      <div class="gallery reveal">
+        <figure><img src="https://oslotriennale.imgix.net/2070009.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fm=jpg&fp-x=0.5&fp-y=0.5&h=1700&w=1200" alt="Oslo Architecture Triennale related project" onerror="this.style.display='none'" /><figcaption>OAT 2026 · Nature as a starting point</figcaption></figure>
+        <figure><img src="https://images.adsttc.com/media/images/68b0/4f15/753a/b901/8800/0bb2/large_jpg/oslo-architecture-triennale-2026-announces-programme-for-9th-edition-under-what-if-nature-comes-first_3.jpg" alt="Oslo Architecture Triennale exhibition" onerror="this.style.display='none'" /><figcaption>材料与再利用：从资源流到空间表达</figcaption></figure>
+        <figure><img src="https://images.adsttc.com/media/images/68b0/4fa3/753a/b901/8800/0bb7/large_jpg/oslo-architecture-triennale-2026-announces-programme-for-9th-edition-under-what-if-nature-comes-first_7.jpg" alt="Oslo Architecture Triennale project" onerror="this.style.display='none'" /><figcaption>建筑不是终点，而是生态系统中的一次介入</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head reveal"><div class="section-kicker">04 / New workflow</div><h2 class="section-title">作品集的设计起点，也可以被重新排序。</h2></div>
+      <div class="process reveal">
+        <div class="step"><span>01</span><strong>Site</strong><small>读场地，而不是先画建筑</small></div><div class="step"><span>02</span><strong>Ecology</strong><small>水、风、植被、物种、季节</small></div><div class="step"><span>03</span><strong>Resources</strong><small>材料、结构、存量空间、废弃物</small></div><div class="step"><span>04</span><strong>Intervention</strong><small>决定最少且必要的介入</small></div><div class="step"><span>05</span><strong>Architecture</strong><small>建筑最后出现</small></div>
+      </div>
+    </section>
+
+    <section class="section" id="portfolio">
+      <div class="section-head reveal"><div class="section-kicker">05 / Portfolio</div><h2 class="section-title">👉 作品集参考方向</h2></div>
+      <div class="portfolio-wrap">
+        <div class="portfolio-note reveal"><h3>把“自然优先”变成一个可被验证的设计方法。</h3><div class="tags"><span class="tag">生态建筑</span><span class="tag">低干预设计</span><span class="tag">建筑再利用</span><span class="tag">在地材料</span><span class="tag">自然共生空间</span><span class="tag">Landscape-led Architecture</span></div></div>
+        <div class="prompts reveal">
+          <div class="prompt"><div class="prompt-num">01</div><div><h4>从“空地”转向“已有系统”</h4><p>用生态、水文、风环境、植被、旧结构与材料流建立场地底图，再决定建筑边界。</p></div></div>
+          <div class="prompt"><div class="prompt-num">02</div><div><h4>做“最小介入”实验</h4><p>比较不建、局部加建、可拆装、再利用四种策略，让方案选择有明确证据。</p></div></div>
+          <div class="prompt"><div class="prompt-num">03</div><div><h4>把材料变成研究对象</h4><p>研究当地废弃物、土、木、旧构件的性能与生命周期，而不是只做材质板。</p></div></div>
+          <div class="prompt"><div class="prompt-num">04</div><div><h4>适合申请方向</h4><p>Architecture / Landscape Architecture / Urban Design / Interior & Spatial Design / Sustainable Design。</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sources">
+      <div class="section-head reveal"><div class="section-kicker">06 / References</div><h2 class="section-title">延伸阅读与资料来源</h2></div>
+      <div class="sources reveal">
+        <a class="source" href="https://www.oslotriennale.no/journal/2026-date-and-venue-ready" target="_blank" rel="noreferrer"><b>Oslo Architecture Triennale · Official</b><span>2026 date and venue / 官方信息</span></a>
+        <a class="source" href="https://www.archdaily.com/1183847/oslo-architecture-triennale-2026-announces-programme-for-9th-edition-under-what-if-nature-comes-first" target="_blank" rel="noreferrer"><b>ArchDaily · Programme Announcement</b><span>展览时间、策展框架与项目概览</span></a>
+        <a class="source" href="https://www.archdaily.com/1185601/nature-as-a-starting-point-lessons-from-the-oslo-architecture-triennale-2026" target="_blank" rel="noreferrer"><b>ArchDaily · Nature as a Starting Point</b><span>2026年9月23日现场观察与策展人访谈</span></a>
+        <a class="source" href="https://www.oslotriennale.no/" target="_blank" rel="noreferrer"><b>OAT Website</b><span>查看完整活动、讲座与展览信息</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="footer-big">NATURE<br>COMES FIRST.</div><div class="footer-note">建筑空间热点推送 · 2026<br>用于建筑 / 景观 / 城市 / 室内作品集灵感整理。图片版权归原作者与原媒体所有，本页仅作学习与信息展示。</div></footer>
+
+  <script>
+    const progress=document.getElementById('progress');
+    const onScroll=()=>{const h=document.documentElement.scrollHeight-innerHeight;progress.style.width=(h>0?scrollY/h*100:0)+'%'};
+    addEventListener('scroll',onScroll,{passive:true});onScroll();
+    const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
